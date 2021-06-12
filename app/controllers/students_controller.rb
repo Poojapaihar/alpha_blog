@@ -4,6 +4,20 @@ class StudentsController < ApplicationController
 		@student =Student.new
 	end
 
+	def edit
+		@student= Student.find(params[:id])
+	end
+
+	def update
+	    @student= Student.find(params[:id])
+		if @student.update(student_params)
+			flash[:notice]= "Your account information was successfully updated"
+			redirect_to articles_path
+		else
+			render 'edit'
+		end
+	end
+
 	def create
 		@student = Student.new(student_params)
 
