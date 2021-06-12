@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
 	def create
 		# render plain: params[:article]
 		@article = Article.new(article_params)
+		@article.student = Student.first
 
 		if @article.save
 			flash[:notice] = "Article was created successfully."
