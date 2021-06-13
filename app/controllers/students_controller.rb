@@ -1,5 +1,10 @@
 class StudentsController < ApplicationController
 
+	def show
+		@student= Student.find(params[:id])
+		@articles = @student.articles
+	end
+
 	def new
 		@student =Student.new
 	end
