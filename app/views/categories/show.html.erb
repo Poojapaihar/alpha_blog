@@ -1,10 +1,8 @@
-<h1 class="text-center mt-4"><%= @student.username %>'s Profile </h1>
-
-<%= gravatar_for @student, size: 200 %>
+<h1 class="text-center mt-4">Category: <%= @category.name %> </h1>
 
 <div class="text-center mt-4">
-	<% if logged_in? && @student == current_student %>
-	<%= link_to 'Edit your profile', edit_student_path(@student), class: "btn btn-outline-info" %>
+	<% if logged_in? && current_student.admin? %>
+	<%= link_to 'Edit category name', edit_category_path(@category), class: "btn btn-outline-info" %>
 	<% end %>
 </div>
 
